@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muse Studio — Aapka AI Workstation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">🎛️ <span>Muse Studio</span></div>
+  <div class="tagline">Aapka AI Workstation — Razia Azeem Official site se alag</div>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button class="tab active" data-tab="ai">🤖 AI Assistant</button>
+  <button class="tab" data-tab="reader">📖 Web Reader</button>
+  <button class="tab" data-tab="youtube">📺 YouTube</button>
+  <button class="tab" data-tab="trends">📰 Trends</button>
+  <button class="tab" data-tab="islamic">🕌 Islamic</button>
+  <button class="tab" data-tab="leads">📋 Leads</button>
+  <button class="tab" data-tab="flows">⚙️ Workflows</button>
+</nav>
+
+<main>
+  <!-- AI ASSISTANT -->
+  <section class="panel active" id="panel-ai">
+    <h2>🤖 AI Assistant</h2>
+    <p class="hint">Koi bhi sawal likhen — jawab turant milega. Bilkul free, koi login nahi.</p>
+    <textarea id="ai-prompt" rows="4" placeholder="Yahan apna sawal ya kaam likhen... (masalan: 'Bachon ke liye 5 Islamic video ideas do')"></textarea>
+    <div class="row">
+      <button class="btn gold" id="ai-go">Jawab Do ✨</button>
+      <button class="chipbtn" data-fill="Bachon ke liye 5 Islamic YouTube video ideas do (Roman Urdu me)">💡 Video ideas</button>
+      <button class="chipbtn" data-fill="Ek chhoti dua Roman Urdu me likho jo subah parhi jaye">🤲 Dua likho</button>
+    </div>
+    <div class="out" id="ai-out"><span class="ph">Jawab yahan aayega…</span></div>
+  </section>
+
+  <!-- WEB READER -->
+  <section class="panel" id="panel-reader">
+    <h2>📖 Web Reader</h2>
+    <p class="hint">Kisi bhi <b>public</b> page ka link paste karein — saaf text nikal aayega (ads ke baghair).</p>
+    <div class="row">
+      <input id="reader-url" type="url" placeholder="https://example.com/article">
+      <button class="btn gold" id="reader-go">Parho 📖</button>
+    </div>
+    <h3 id="reader-title" class="res-title"></h3>
+    <div class="out scroll" id="reader-out"><span class="ph">Page ka text yahan aayega…</span></div>
+    <div class="row">
+      <button class="btn ghost" id="reader-sum">AI se Khulasa 📝</button>
+      <button class="btn ghost" id="reader-points">Ahem Nuktaat 📌</button>
+    </div>
+    <div class="out" id="reader-ai"><span class="ph">AI khulasa yahan aayega…</span></div>
+  </section>
+
+  <!-- YOUTUBE -->
+  <section class="panel" id="panel-youtube">
+    <h2>📺 YouTube Research</h2>
+    <p class="hint">Video ka link paste karein → details milengi. Phir YouTube par video ke neeche <b>••• → Open transcript → Copy</b> karke yahan paste karein → AI khulasa banayega.</p>
+    <div class="row">
+      <input id="yt-url" type="url" placeholder="https://www.youtube.com/watch?v=...">
+      <button class="btn gold" id="yt-go">Details Lao 🎬</button>
+    </div>
+    <div id="yt-card" class="ytcard hidden">
+      <img id="yt-thumb" alt="thumbnail">
+      <div><div id="yt-title" class="res-title"></div><div id="yt-author" class="muted"></div></div>
+    </div>
+    <h3>Transcript yahan paste karein:</h3>
+    <textarea id="yt-transcript" rows="6" placeholder="YouTube se transcript copy karke yahan paste karein..."></textarea>
+    <div class="row">
+      <button class="btn gold" id="yt-sum">Khulasa 📝</button>
+      <button class="btn ghost" id="yt-ideas">Video Ideas 💡</button>
+    </div>
+    <div class="out" id="yt-out"><span class="ph">AI jawab yahan aayega…</span></div>
+  </section>
+
+  <!-- TRENDS -->
+  <section class="panel" id="panel-trends">
+    <h2>📰 Trending Topics</h2>
+    <p class="hint">Taza khabren — blog aur video ideas ke liye behtareen.</p>
+    <div class="row">
+      <input id="trends-q" type="text" placeholder="Islamic" value="Islamic">
+      <button class="btn gold" id="trends-go">Dekho 📰</button>
+      <button class="chipbtn" data-tq="Quran">Quran</button>
+      <button class="chipbtn" data-tq="Muslim world">Muslim world</button>
+      <button class="chipbtn" data-tq="Islamic education">Education</button>
+    </div>
+    <div id="trends-out" class="cards"><span class="ph">Khabren yahan ayengi…</span></div>
+  </section>
+
+  <!-- ISLAMIC TOOLS -->
+  <section class="panel" id="panel-islamic">
+    <h2>🕌 Islamic Tools</h2>
+    <p class="hint">Bilkul free APIs se — koi key ya login nahi.</p>
+    <h3>🕋 Namaz Timings</h3>
+    <div class="row">
+      <input id="pt-city" type="text" placeholder="City" value="Karachi">
+      <input id="pt-country" type="text" placeholder="Country" value="Pakistan">
+      <button class="btn gold" id="pt-go">Timings Dekho 🕌</button>
+    </div>
+    <div id="pt-out" class="cards"><span class="ph">City likh kar button dabayen…</span></div>
+    <h3>📖 Random Ayah</h3>
+    <div class="row">
+      <button class="btn gold" id="ayah-go">Ayah Lao ✨</button>
+    </div>
+    <div class="out" id="ayah-out"><span class="ph">Button dabayen — Quran ki koi ayah Arabic + Urdu tarjume ke saath aayegi…</span></div>
+  </section>
+
+  <!-- LEADS -->
+  <section class="panel" id="panel-leads">
+    <h2>📋 Leads Board</h2>
+    <p class="hint">Mauqay (job ads, rabte) yahan save karke track karein. <b>Sirf public info</b> — private numbers/emails yahan se nahi nikale jate.</p>
+    <div class="leadform">
+      <input id="lead-name" type="text" placeholder="Naam / unwan (masalan: Quran tutor job — Dubai)">
+      <input id="lead-link" type="url" placeholder="Link (optional)">
+      <div class="row">
+        <button class="btn ghost" id="lead-fill">🔍 Link se details bharo</button>
+      </div>
+      <textarea id="lead-note" rows="2" placeholder="Note (masalan: budget 200 AED, female tutor)..."></textarea>
+      <div class="row">
+        <select id="lead-status">
+          <option value="Naya">🆕 Naya</option>
+          <option value="Rabta">💬 Rabta ho gaya</option>
+          <option value="Deal">✅ Deal</option>
+          <option value="Nakaam">❌ Nakaam</option>
+        </select>
+        <button class="btn gold" id="lead-add">Save karo ➕</button>
+      </div>
+    </div>
+    <div id="leads-out" class="cards"></div>
+  </section>
+
+  <!-- WORKFLOWS -->
+  <section class="panel" id="panel-flows">
+    <h2>⚙️ Workflows (Auto-kaam)</h2>
+    <p class="hint">Ye kaam <b>Muse</b> aapke liye schedule par khud kar sakta hai — bas chat me keh dein "ye workflow laga do":</p>
+    <div class="cards">
+      <div class="card"><b>📰 Rozana Trends Alert</b><p>Har subah trending Islamic topics ki list aapko mil jayegi — blog/video ideas ke liye.</p></div>
+      <div class="card"><b>📺 Haftewar Content Ideas</b><p>Har hafte aapke channel ke liye 5 naye video + blog ideas taiyar.</p></div>
+      <div class="card"><b>📋 Lead Follow-up Yaad-dihani</b><p>Jo leads "Rabta" stage par hon, unka follow-up yaad dilaya jayega.</p></div>
+      <div class="card"><b>✨ Custom Workflow</b><p>Koi aur repeat hone wala kaam? Chat me batayen — Muse schedule laga dega.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Muse Studio · Free tools · Private numbers/emails scrape nahi kiye jate · Razia Azeem Official website se alag
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
